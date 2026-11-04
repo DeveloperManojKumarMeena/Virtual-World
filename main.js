@@ -16,8 +16,16 @@ class Character {
     }
 
     attack(target){
-        console.log(`Dragon attacked Ninja!`)
+        console.log(`${this.name} attacked ${target.name}!`)
 
+        if(target.health<=0){
+            console.log(`${target.name} already defeated! attack not allow`)
+        }else if(target.health<this.power){
+            target.health = 0;
+            console.log(`${target.name} has been defeated!`)
+        }else{
+             console.log(`${target.name} remaining health: ${target.health = target.health - this.power}`)
+        }
     }
 
 }
@@ -31,5 +39,7 @@ const ninja = new Character("🥷 Ninja", 100, 70);
 dragon.printDetails();
 ninja.printDetails();
 
-dragon.attack()
-ninja.attack()
+dragon.attack(ninja)
+dragon.attack(ninja)
+dragon.attack(ninja)
+
