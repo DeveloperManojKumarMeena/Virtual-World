@@ -44,6 +44,7 @@ dragon.attack(ninja)
 dragon.attack(ninja)
 
 */
+//Here is the problem of call back hell
 
 function one(cb){
     console.log("Function one is called")
@@ -65,3 +66,26 @@ one(()=>{
         })
     })
 })
+
+//Here is solution of call back hell
+
+function one(cb){
+   return new Promise((res,rej)=>{
+     console.log("Function one is called")
+    res()
+   })
+}
+function two(cb){
+   return new Promise((res,rej)=>{
+     console.log("Function two is called")
+    res()
+   })
+}
+function three(cb){
+   return new Promise((res,rej)=>{
+     console.log("Function three is called")
+    res()
+   })
+}
+
+one().then(two).then(three)
