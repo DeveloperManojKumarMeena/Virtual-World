@@ -1,4 +1,4 @@
-
+/*
 class Character {
 
     constructor(name, health, power) {
@@ -43,3 +43,25 @@ dragon.attack(ninja)
 dragon.attack(ninja)
 dragon.attack(ninja)
 
+*/
+
+function one(cb){
+    console.log("Function one is called")
+    cb()
+}
+function two(cb){
+    console.log("Function two is called")
+    cb()
+}
+function three(cb){
+    console.log("Function three is called")
+    cb()
+}
+
+one(()=>{
+    two(()=>{
+        three(()=>{
+            console.log('all function is called')
+        })
+    })
+})
